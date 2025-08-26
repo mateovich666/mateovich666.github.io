@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo en Humahuaca</title>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turismo en Humahuaca</title>
+    <style>
+        /* Variables de colores cálidos y tierra */
+        :root {
+            --color-fondo: #ffffff; 
+            --color-primario: #a0522d; 
+            --color-secundario: #deb887; 
+            --color-acento: #8b4513; /*  */
+            --color-texto: #333;
+            --color-luz: #fff8e1; /* */
+        }
+
+        /* Estilos generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+.header {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: var(--color-primario);
+    color: var(--color-luz);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.2rem;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-acento);
+}
+
+h3 {
+    color: var(--color-primario);
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-secundario);
+    margin: 3rem 0;
+}
+
+/* Sección de Carrusel */
+/* Sección de Carrusel */
+.carrusel-section {
+    background-color: var(--color-luz);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; 
+}
+
+.carrusel-container {
+    overflow: hidden; 
+}
+
+.carrusel {
+    display: flex;
+    animation: none; 
+    transition: transform 0.5s ease;
+    padding: 1rem 0;
+}
+
+.carrusel-item {
+    min-width: 300px;
+    margin-right: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-decoration: none; 
+    transition: transform 0.3s ease-in-out; /* Transición para el zoom */
+}
+
+.carrusel-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.carrusel-item .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-luz);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el cursor (hover) */
+.carrusel-container:hover .carrusel {
+    animation-play-state: paused; /* Pausa el movimiento del carrusel */
+}
+
+.carrusel-item:hover {
+    transform: scale(1.15) !important; /* Agrandar la imagen */
+    z-index: 10; /* Elevar sobre los demás elementos */
+    position: relative; /* Asegura que la transformación funcione correctamente */
+}
+
+.carrusel-item:hover img {
+    transform: none; /* Desactiva el efecto anterior de zoom de la imagen */
+}
+
+.carrusel-item:hover .label {
+    transform: translateY(0);
+}
+
+/* Animación del carrusel */
+@keyframes carrusel-movimiento {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-320px * 5)); }
+}
+
+.carrusel-container {
+    overflow: hidden; /* Asegura que el carrusel se mueva dentro de este contenedor */
+}
+
+.carrusel {
+    display: flex;
+    animation: none; /* Inicialmente no hay animación */
+    transition: transform 0.5s ease;
+    padding: 1rem 0;
+}
+
+.carrusel-item {
+    min-width: 300px;
+    margin-right: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+.carrusel-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.carrusel-item .label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-luz);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el cursor (hover) */
+.carrusel-container:hover .carrusel {
+    animation: carrusel-movimiento 20s linear infinite;
+}
+
+.carrusel-item:hover img {
+    transform: scale(1.05);
+}
+
+.carrusel-item:hover .label {
+    transform: translateY(0);
+}
+
+/* Animación del carrusel */
+@keyframes carrusel-movimiento {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-320px * 5)); /* 300px (ancho) + 20px (margen) * N° de imágenes */ }
+}
+
+/* Sección de Información */
+.info-section {
+    padding: 2rem 0;
+}
+
+.info-card {
+    background-color: var(--color-secundario);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.how-to-get {
+    border-top: 1px solid var(--color-primario);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.how-to-get h4 {
+    color: var(--color-acento);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Sección de Servicios */
+.services-section, .lodging-section {
+    padding: 2rem 0;
+}
+
+.service-cards, .lodging-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.service-card, .lodging-card {
+    background-color: var(--color-luz);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex: 1 1 300px;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--color-acento);
+    color: var(--color-luz);
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .carrusel-item {
+        min-width: 250px;
+    }
+
+    .service-cards, .lodging-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body>
+
+    </body>
+</html>
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <h1>Descubre Humahuaca</h1>
+            <p>Un viaje al corazón de la Quebrada</p>
+        </div>
+       
+    </header>
+
+    <main>
+        
+        <section class="carrusel-section">
+            <h2>Lugares para visitar</h2>
+            <p>Pasa el cursor sobre las imágenes para explorar y haz clic para ver más detalles.</p>
+            <div class="carrusel-container">
+                <div class="carrusel">
+                    <a href="#horno-cal" class="carrusel-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Hornocal.JPG" alt="Serranía del Hornocal">
+                        <span class="label">Serranía del Hornocal</span>
+                    </a>
+                    <a href="#monumento" class="carrusel-item">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/3addf973850221.5c17c08417d97.jpg" alt="Monumento a los Héroes de la Independencia">
+                        <span class="label">Monumento a los Héroes de la Independencia</span>
+                    </a>
+                    <a href="#iglesia" class="carrusel-item">
+                        <img src="https://www.argentina.gob.ar/sites/default/files/20170906_122237.jpg" alt="Iglesia de la Candelaria">
+                        <span class="label">Catedral Nuestra Señora de la Candelaria</span>
+                    </a>
+                    <a href="#pucara" class="carrusel-item">
+                        <img src="https://www.turismo.jujuy.gob.ar/wp-content/uploads/Img_PucaraDeTilcara.png"  alt="Pucará de Tilcara">
+                        <span class="label">Pucará de Tilcara</span>
+                    </a>
+                     <a href="#maimara" class="carrusel-item">
+                        <img src="https://revistapanorama.com/storage/2024/08/Hornocal-06-1-scaled-e1724970879975.jpg" alt="Paleta del Pintor en Maimará">
+                        <span class="label">Cerro Paleta del Pintor</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <article id="horno-cal" class="info-card">
+                <h3>Serranía del Hornocal</h3>
+                <p>Ubicada a 25 km de Humahuaca, esta serranía es famosa por sus formaciones de <strong>piedra caliza de 14 colores</strong>, conocidas como la "montaña de los 14 colores". Su belleza paisajística es impresionante, especialmente al atardecer cuando la luz resalta sus tonalidades. Es un lugar ideal para la fotografía y la contemplación. </p>
+                <div class="how-to-get">
+                    <h4>Cómo llegar</h4>
+                    <p>Para llegar, la forma más común es contratar una excursión con un guía local desde el pueblo de Humahuaca. También puedes ir en vehículo 4x4, ya que el camino es de ripio y con curvas pronunciadas. El acceso está a unos 5 km al este del pueblo y el recorrido hasta la cima toma aproximadamente 45 minutos.</p>
+                </div>
+            </article>
+
+            <article id="monumento" class="info-card">
+                <h3>Monumento a los Héroes de la Independencia</h3>
+                <p>Este imponente monumento, conocido también como "El Indio", se encuentra en la colina de Santa Bárbara. Conmemora la resistencia del pueblo de Jujuy en la Guerra de la Independencia. La escultura principal, de casi 10 metros de altura, representa al gaucho jujeño. Ofrece una vista panorámica espectacular de todo el pueblo y sus alrededores.</p>
+                <div class="how-to-get">
+                    <h4>Cómo llegar</h4>
+                    <p>El monumento se encuentra en el centro de Humahuaca, sobre una colina. Puedes llegar caminando desde la plaza principal en unos 15 minutos, siguiendo las escalinatas de piedra. Es un camino empinado, pero el esfuerzo vale la pena.</p>
+                </div>
+            </article>
+
+            <article id="iglesia" class="info-card">
+                <h3>Iglesia de la Candelaria y San Antonio</h3>
+                <p>La Iglesia de la Candelaria es uno de los edificios más antiguos de Humahuaca, con una rica historia y un valioso patrimonio artístico. En su interior, se pueden admirar pinturas de la **Escuela Cusqueña**, destacando la imagen de la "Virgen de la Candelaria". Cada 2 de febrero, el pueblo celebra su fiesta patronal con gran fervor.</p>
+                <div class="how-to-get">
+                    <h4>Cómo llegar</h4>
+                    <p>La iglesia está ubicada en la plaza principal de Humahuaca, frente al Cabildo. Se puede acceder fácilmente a pie desde cualquier punto del centro del pueblo.</p>
+                </div>
+            </article>
+
+             <article id="pucara" class="info-card">
+                <h3>Pucará de Tilcara</h3>
+                <p>Aunque no está en Humahuaca, el Pucará es un sitio arqueológico fundamental en la Quebrada. Esta fortaleza preincaica, reconstruida en el siglo XX, ofrece una visión de cómo vivían los pueblos originarios de la región. Cuenta con un jardín botánico de altura que exhibe flora autóctona.</p>
+                <div class="how-to-get">
+                    <h4>Cómo llegar</h4>
+                    <p>El Pucará se encuentra en el pueblo de Tilcara, a unos 40 minutos en auto desde Humahuaca. Puedes tomar un bus o un "shared taxi" (remis compartido) desde la terminal de ómnibus de Humahuaca. Una vez en Tilcara, el Pucará está a 15-20 minutos a pie del centro.</p>
+                </div>
+            </article>
+
+             <article id="maimara" class="info-card">
+                <h3>Paleta del Pintor, Maimará</h3>
+                <p>Un paisaje icónico de la Quebrada. La Paleta del Pintor es una formación montañosa con múltiples tonalidades de colores que parecen haber sido pintadas con una brocha gigante. El mejor lugar para apreciarla es desde el mirador al costado de la Ruta Nacional 9.</p>
+                <div class="how-to-get">
+                    <h4>Cómo llegar</h4>
+                    <p>Maimará se encuentra en el camino de regreso a San Salvador de Jujuy, a unos 30 km de Humahuaca. Se puede llegar en vehículo particular o en bus desde la terminal. El paisaje se ve desde la ruta, pero puedes parar en el mirador habilitado.</p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="services-section">
+            <h2>Servicios de Emergencia</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>Emergencias Médicas</h3>
+                    <p><strong>SAME 107</strong> - Servicio de Ambulancia. Funciona las 24 horas para urgencias y emergencias médicas.</p>
+                    <p><strong>Hospital Gral. Belgrano</strong> - Hospital de Humahuaca.</p>
+                    <p><strong>Cómo llegar:</strong> El hospital se encuentra en la calle San Luis S/N. Si necesitas ayuda, es mejor llamar al 107. </p>
+                </div>
+                <div class="service-card">
+                    <h3>Seguridad y Policía</h3>
+                    <p><strong>911</strong> - Número de Emergencias Nacional.</p>
+                    <p><strong>Policía de Jujuy</strong> - Ofrece servicio las 24 horas.</p>
+                    <p><strong>Cómo llegar:</strong> La comisaría se encuentra en el centro de Humahuaca, cerca de la terminal de ómnibus. Para situaciones de emergencia, siempre se recomienda llamar al 911.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bomberos</h3>
+                    <p><strong>100</strong> - Para incendios y rescates.</p>
+                    <p><strong>Bomberos de Humahuaca</strong> - Cuartel de bomberos local.</p>
+                    <p><strong>Cómo llegar:</strong> El cuartel de bomberos está en las afueras del pueblo. Lo más rápido es llamar al 100 en caso de una emergencia.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="lodging-section">
+            <h2>Hospedajes</h2>
+            <div class="lodging-cards">
+                <div class="lodging-card">
+                    <img src="img/hotelmunay.jpg" width= 400 height=" 300" alt="Foto de Munay Humahuaca">
+                    <h3>Munay Humahuaca</h3>
+                    <p>Un hotel bien valorado con una excelente ubicación, a solo 700 metros del centro de Humahuaca. Ofrece habitaciones cómodas y servicios de calidad para una estancia relajada.</p>
+                    <p><strong>Cómo llegar:</strong> Se encuentra en la calle Tucumán 350. Es fácilmente accesible a pie desde la plaza principal. Si llegas en auto, ofrecen estacionamiento.</p>
+                </div>
+                <div class="lodging-card">
+                    <img src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/hotelier-images/d3/ed/9d11801bf7731c659d510ce25d908a2371a73e3bfab2e7a4fa3242a6f6bb.jpeg" width="300" height= "300" alt="Foto del Hostal La Merced">
+                    <h3>Hostal La Merced</h3>
+                    <p>Una opción de hospedaje más tradicional, ideal para quienes buscan una experiencia auténtica y una ubicación céntrica. Destaca por su calidez y su ambiente acogedor.</p>
+                    <p><strong>Cómo llegar:</strong> Ubicado en la calle Jujuy 123. Se puede llegar caminando desde la terminal de ómnibus en pocos minutos.</p>
+                </div>
+                <div class="lodging-card">
+                    <img src="https://via.placeholder.com/500x300?text=Hosteria+El+Valle+Sagrado" alt="Foto de la Hostería El Valle Sagrado">
+                    <h3>Hosteria El Valle Sagrado</h3>
+                    <p>Para quienes prefieren hospedarse en un entorno más tranquilo, esta hostería ofrece vistas panorámicas al río y a los cerros. Está a 13.8 km del centro, ideal para desconectar.</p>
+                    <p><strong>Cómo llegar:</strong> Se encuentra en la zona rural de Humahuaca. Se recomienda llegar en auto propio o coordinar un transfer con el hostal. </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Turismo Humahuaca. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
